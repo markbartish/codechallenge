@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-#include "point.h"
+#include "lib/point.h"
 
 using namespace std;
 
