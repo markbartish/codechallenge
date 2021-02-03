@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-#include "point.h"
+#include "lib/point.h"
 
 using namespace std;
 

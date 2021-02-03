@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-#include "edge.h"
+#include "lib/edge.h"
 
 using namespace std;
 
