@@ -23,8 +23,8 @@ $(LIBDIR)/geomlib.a: $(OBJS)
 	ar rvs lib/geomlib.a $^
 
 test: $(LIBDIR)/geomlib.a
-	g++ -o pointtest pointtest.cpp -lgeomlib -lgtest -lgmock -L/usr/local/lib -Llib  $(CXXFLAGS)
-	g++ -o edgetest edgetest.cpp -lgeomlib -lgtest -lgmock -L/usr/local/lib  -Llib $(CXXFLAGS)
+	g++ -o pointtest pointtest.cpp $(LIBDIR)/geomlib.a -lgtest -lgmock -L/usr/local/lib $(CXXFLAGS)
+	#g++ -o edgetest edgetest.cpp $(LIBDIR)/geomlib.a -lgtest -lgmock -L/usr/local/lib $(CXXFLAGS)
 
 app: $(LIBDIR)/geomlib.a
 	g++ -o airport airport.cpp $(LIBDIR)/geomlib.a -std=c++17
@@ -39,4 +39,4 @@ run: app 1.in 2.in
 	./airport < 2.in
 
 clean:
-	rm *.exe *~ 1.in 2.in 1.ans 2.ans
+	rm airport *.exe lib/geomlib.a obj/*.o *~ 1.in 2.in 1.ans 2.ans

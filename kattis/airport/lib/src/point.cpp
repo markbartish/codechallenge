@@ -50,11 +50,6 @@ Point<T>& Point<T>::operator*=(U scalar) {
 }
 
 
-template<typename T, typename U>
-Point<T> operator*(U lhs, Point<T> rhs) {
-  rhs *= lhs; return rhs;
-}
-
 
 template<typename T>
 template<typename U>
@@ -104,5 +99,83 @@ std::ostream& operator<<(std::ostream& os, const Point<T>& p){
   return os;
 }
 
+
+
+
+
 template class Point<int>;
+template class Point<double>;
+
+template std::ostream& operator<< <double>(std::ostream& os, const Point<double>& p);
 template std::ostream& operator<< <int>(std::ostream& os, const Point<int>& p);
+
+
+//template<typename U> Point<int> Point<int>::operator*(U scalar);
+
+//  template<typename U>
+//  Point<T> operator*(U scalar) const;
+
+template Point<int> Point<int>::operator*<int>(int scalar) const;
+template Point<int> Point<int>::operator*<double>(double scalar) const;
+template Point<double> Point<double>::operator*<int>(int scalar) const;
+template Point<double> Point<double>::operator*<double>(double scalar) const;
+
+//template<typename U>
+//Point<T>& operator*=(U scalar);
+
+template Point<int>& Point<int>::operator*=<int>(int scalar);
+template Point<int>& Point<int>::operator*=<double>(double scalar);
+template Point<double>& Point<double>::operator*=<int>(int scalar);
+template Point<double>& Point<double>::operator*=<double>(double scalar);
+
+
+
+
+/*
+  template<typename U>
+  friend Point<T> operator*(U lhs, Point<T> rhs);
+
+  template<typename T>
+  template<typename U>
+  Point<T> Point<T>::operator*(U scalar) const {
+    return Point<T>(x * scalar, y * scalar);
+  }
+*/
+
+
+template<typename T, typename U>
+Point<T> operator*(U lhs, Point<T> rhs) {
+  rhs *= lhs; return rhs;
+}
+
+
+//template Point<int> operator*(int, Point<int>);
+//template Point<int> operator*(double, Point<int>);
+template Point<int> operator*(double, Point<int>);
+//template Point<double> operator*(int lhs, Point<double> rhs);
+//template Point<double> operator*(double lhs, Point<double> rhs);
+
+
+/*
+template<typename T>
+template<typename U>
+Point<T> Point<T>::operator/(U scalar) const;
+
+template<typename T>
+template<typename U>
+Point<T>& Point<T>::operator/=(U scalar);
+*/
+
+
+
+template Point<int> Point<int>::operator/<int>(int scalar) const;
+template Point<int> Point<int>::operator/<double>(double scalar) const;
+template Point<double> Point<double>::operator/<int>(int scalar) const;
+template Point<double> Point<double>::operator/<double>(double scalar) const;
+
+
+
+template Point<int>& Point<int>::operator/=<int>(int scalar);
+template Point<int>& Point<int>::operator/=<double>(double scalar);
+template Point<double>& Point<double>::operator/=<int>(int scalar);
+template Point<double>& Point<double>::operator/=<double>(double scalar);

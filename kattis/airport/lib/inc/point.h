@@ -38,6 +38,7 @@ public:
   
   template<typename U>
   Point<T>& operator*=(U scalar);
+  
   template<typename U>
   friend Point<T> operator*(U lhs, Point<T> rhs);
 
@@ -66,5 +67,6 @@ public:
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Point<T>& p);
+
 
 #endif //__POINT_H__
