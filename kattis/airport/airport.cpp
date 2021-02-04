@@ -1,8 +1,10 @@
+#include "lib/inc/point.h"
+
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-#include "lib/point.h"
+
 
 using namespace std;
 

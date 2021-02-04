@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define PI 3.141592653589793
+
 #define TOLERANCE 0.0000001
 
 TEST(EdgeTest, distSingle){
